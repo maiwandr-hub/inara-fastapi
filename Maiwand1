@@ -1,0 +1,19 @@
+fastapi-app/
+  app/
+    __init__.py
+    main.py
+    config.py
+    db.py
+    models.py
+    routers/
+      __init__.py
+      triangle.py
+  tests/
+    test_triangle.py
+  .env.example
+  .env            # (you create this from .env.example)
+  requirements.txt
+  Dockerfile
+  docker-compose.yml
+  .gitignore
+  README.md
