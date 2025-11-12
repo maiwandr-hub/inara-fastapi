@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 
 app = FastAPI(title="Hello FastAPI App")
@@ -29,3 +30,7 @@ def triangle(body: TriangleInput):
         return {"ok": True, "triangle": result}
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+@app.get("/", include_in_schema=False)
+def root():
+    return RedirectResponse(url="/docs")
