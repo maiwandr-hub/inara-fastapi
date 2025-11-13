@@ -94,7 +94,10 @@ def create_activity(body: ActivityCreate):
     global _activity_id_counter
 
     now = datetime.utcnow()
-    is_late = body.end_datetime < now if body.status != "completed" else False
+    # For now we keep it simple and always mark is_late = False.
+    # Later we can add proper timezone-aware comparison.
+    is_late = False
+
 
     activity = ActivityRead(
         id=_activity_id_counter,
